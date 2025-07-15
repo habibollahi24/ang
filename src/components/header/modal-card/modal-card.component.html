@@ -1,0 +1,66 @@
+<button class="btn bg-transparent border-none" onclick="cart_modal.showModal()">
+  <div class="indicator">
+    <span class="indicator-item badge badge-secondary">{{
+      items().length
+    }}</span>
+    <lucide-icon
+      [img]="ShoppingCart"
+      class="stroke-1 cursor-pointer"
+    ></lucide-icon>
+  </div>
+</button>
+
+<dialog id="cart_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box w-full max-w-2xl">
+    <h3 class="text-lg font-bold mb-4">Your Cart</h3>
+
+    @if (items().length > 0) { @for (item of items(); track item.id) {
+    <div class="flex gap-4 items-center border-b py-3">
+      <img
+        [src]="item.thumbnail"
+        alt="{{ item.title }}"
+        class="w-16 h-16 object-cover rounded"
+      />
+      <div class="flex-1">
+        <h4 class="font-semibold text-sm w-[100px] md:w-full">
+          {{ item.title }}
+        </h4>
+        <div class="text-xs text-gray-500">Unit Price: ${{ item.price }}</div>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <div class="font-bold text-sm w-16 text-right">
+          ${{ item.quantity * item.price }}
+        </div>
+        <div class="flex items-center gap-1">
+          <button class="btn btn-xs" (click)="decrease(item.id)">−</button>
+          <span class="px-2 text-sm">{{ item.quantity }}</span>
+          <button class="btn btn-xs" (click)="increase(item.id)">+</button>
+        </div>
+      </div>
+      <button class="" (click)="remove(item.id)">
+        <lucide-icon
+          [img]="Trash"
+          class="stroke-1 cursor-pointer stroke-red-500"
+        ></lucide-icon>
+      </button>
+    </div>
+    }
+
+    <div class="mt-4 flex justify-between font-bold">
+      <span>Total:</span>
+      <span>${{ total() }}</span>
+    </div>
+    } @else {
+    <p class="text-center text-gray-500">Cart is empty.</p>
+    }
+
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>

@@ -1,0 +1,103 @@
+<!-- <nav class="flex gap-4">
+  <a routerLink="/">Home</a>
+  <a routerLink="/products">Products</a>
+  <a routerLink="/about">About</a>
+</nav> -->
+<div class="flex items-center justify-between py-6">
+  <div class="flex items-center">
+    <div class="relative lg:hidden">
+      <button (click)="toggleDropdown()" class="btn btn-ghost">
+        <!-- Hamburger Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </button>
+
+      <!-- custom dropdown -->
+      @if (isOpen()) {
+      <ul
+        class="absolute left-0 z-10 mt-2 w-52 rounded-box bg-base-100 p-2 shadow menu menu-sm dropdown-content"
+      >
+        <li><a routerLink="/" (click)="closeDropdown()">Home</a></li>
+        <li>
+          <a routerLink="/products" (click)="closeDropdown()">Products</a>
+        </li>
+        <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
+      </ul>
+      }
+    </div>
+    <!-- <div class="dropdown" (click)="toggleDropdown()">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </div>
+      @if (isOpen()) {
+
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+      >
+        <li><a routerLink="/" (click)="closeDropdown()">Home</a></li>
+        <li>
+          <a routerLink="/products" (click)="closeDropdown()">Products</a>
+        </li>
+        <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
+      </ul>
+      }
+    </div> -->
+    <a class="text-xl">Appang</a>
+  </div>
+
+  <div class="hidden lg:flex">
+    <ul class="flex items-center gap-x-4">
+      <li class="hover:scale-105 transition-all">
+        <a
+          [routerLink]="['/']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="text-secondary font-bold"
+          >Home</a
+        >
+      </li>
+      <li class="hover:scale-105 transition-all">
+        <a
+          [routerLink]="['/products/']"
+          routerLinkActive="text-secondary font-bold"
+          >Products</a
+        >
+      </li>
+      <li class="hover:scale-105 transition-all">
+        <a
+          [routerLink]="['/about']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="text-secondary font-bold"
+          >About</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <app-navbar-icons></app-navbar-icons>
+</div>
