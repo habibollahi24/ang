@@ -1,15 +1,6 @@
-import {
-  Component,
-  computed,
-  ElementRef,
-  inject,
-  OnInit,
-  signal,
-  ViewChild,
-} from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NavbarIconsComponent } from './navbar-icons/navbar-icons.component';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',

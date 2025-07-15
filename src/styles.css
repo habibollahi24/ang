@@ -1,8 +1,4 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: emerald --default, dracula --prefersdark;
+  themes: emerald --default, dracula;
 }
-
-/* @utility btn {
-  @apply rounded-full;
-} */

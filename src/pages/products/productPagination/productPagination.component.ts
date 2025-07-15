@@ -14,7 +14,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-productPagination',
   imports: [CommonModule],
 
-  // templateUrl: './productPagination.component.html',
   template: `
     @if(pages().length > 1) {
 
@@ -32,27 +31,17 @@ import { CommonModule } from '@angular/common';
         <button class="join-item btn btn-disabled">...</button>
       </ng-template>
       }
-      <!-- @for (i of pages(); track i) {
-      <button
-        class="join-item btn"
-        [class.btn-active]="i === currentPage()"
-        (click)="goToPage(i)"
-      >
-        {{ i + 1 }}
-      </button>
-      } -->
     </div>
     }
   `,
 })
-export class ProductPaginationComponent implements OnInit {
+export class ProductPaginationComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private productService = inject(ProductsService);
 
   readonly limit = 9;
 
-  // ✅ state signals
   readonly skip = signal(0);
   readonly currentPage = computed(() => Math.floor(this.skip() / this.limit));
 
@@ -62,7 +51,6 @@ export class ProductPaginationComponent implements OnInit {
   });
 
   constructor() {
-    // ✅ Watch query params manually in a reactive way
     effect(() => {
       this.route.queryParamMap.subscribe((params) => {
         const skipParam = +(params.get('skip') ?? 0);
@@ -82,7 +70,6 @@ export class ProductPaginationComponent implements OnInit {
         queryParamsHandling: 'merge',
       })
       .then(() => {
-        // ✅ اسکرول به بالای صفحه یا بالای بخش خاص
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
   }
@@ -105,75 +92,5 @@ export class ProductPaginationComponent implements OnInit {
     }
 
     return range;
-  }
-  // private router = inject(Router);
-  // private route = inject(ActivatedRoute);
-  // private productService = inject(ProductsService);
-
-  // readonly limit = 9;
-
-  // // ✅ Signals برای skip و currentPage
-  // private skip = signal(0);
-  // readonly currentPage = computed(() => Math.floor(this.skip() / this.limit));
-
-  // readonly pages = computed(() => {
-  //   const count = Math.ceil(this.productService.total() / this.limit);
-  //   return Array.from({ length: count }, (_, i) => i);
-  // });
-
-  // constructor() {
-  //   // ✅ Reactive به تغییرات query params بدون RxJS
-  //   effect(() => {
-  //     const skipParam = this.route.snapshot.queryParamMap.get('skip');
-  //     this.skip.set(+skipParam! || 0);
-  //   });
-  // }
-
-  // goToPage(index: number) {
-  //   this.router.navigate([], {
-  //     relativeTo: this.route,
-  //     queryParams: {
-  //       skip: index * this.limit,
-  //       limit: this.limit,
-  //     },
-  //     queryParamsHandling: 'merge',
-  //   });
-  // }
-  // private router = inject(Router);
-  // private route = inject(ActivatedRoute);
-  // private productService = inject(ProductsService);
-
-  // readonly limit = 9;
-
-  // // ✅ تعداد کل صفحات با توجه به total
-  // readonly pages = computed(() => {
-  //   const count = Math.ceil(this.productService.total() / this.limit);
-  //   return Array.from({ length: count }, (_, i) => i);
-  // });
-
-  // // ✅ صفحه فعلی از query param `skip`
-
-  // readonly skip = computed(() => {
-  //   const skipParam = this.route.snapshot.queryParamMap.get('skip');
-  //   return +(skipParam ?? 0);
-  // });
-
-  // readonly currentPage = computed(() => Math.floor(this.skip() / this.limit));
-
-  // goToPage(index: number) {
-  //   this.router.navigate([], {
-  //     relativeTo: this.route,
-  //     queryParams: {
-  //       skip: index * this.limit,
-  //       limit: this.limit,
-  //     },
-  //     queryParamsHandling: 'merge',
-  //   });
-  // }
-
-  ngOnInit() {
-    // console.log({ pages: this.pages() });
-    // console.log({ skip: this.skip() });
-    // console.log({ currentPage: this.currentPage() });
   }
 }

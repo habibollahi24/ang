@@ -7,9 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-siderbar',
-  // templateUrl: './product-siderbar.component.html',
+
   template: `
-    <!-- <button class="md:hidden">filter</button> -->
     <button class="btn md:hidden" onclick="filter_modal.showModal()">
       filter
     </button>
@@ -108,4 +107,3 @@ export class ProductSiderbarComponent implements OnInit {
     modal?.close();
   }
 }
-// skip: 0, q: null

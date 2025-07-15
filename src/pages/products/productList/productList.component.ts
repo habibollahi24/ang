@@ -15,7 +15,7 @@ import { SkeltonComponent } from '../../../components/skelton/skelton.component'
     ProductCardComponent,
     SkeltonComponent,
   ],
-  // templateUrl: './productList.component.html',
+
   template: `
     <app-product-search></app-product-search>
 

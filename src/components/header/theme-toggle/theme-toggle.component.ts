@@ -1,4 +1,4 @@
-import { Component, effect, OnInit, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { LucideAngularModule, Moon, Sun } from 'lucide-angular';
 
 @Component({
@@ -7,20 +7,19 @@ import { LucideAngularModule, Moon, Sun } from 'lucide-angular';
   template: `
     <button class="cursor-pointer" (click)="toggleTheme()">
       @if(theme() === 'dracula') {
-      <lucide-icon [img]="Moon" class="stroke-1 size-7"></lucide-icon>
-      } @else {
       <lucide-icon [img]="Sun" class="stroke-1 size-7"></lucide-icon>
+      } @else {
+      <lucide-icon [img]="Moon" class="stroke-1 size-7"></lucide-icon>
       }
     </button>
   `,
 })
-export class ThemeToggleComponent implements OnInit {
+export class ThemeToggleComponent {
   Moon = Moon;
   Sun = Sun;
   theme = signal<'light' | 'dracula'>(this.getInitialTheme());
 
   constructor() {
-    // reactive: وقتی theme تغییر کرد، کلاس html تغییر کنه
     effect(() => {
       document.documentElement.setAttribute('data-theme', this.theme());
       localStorage.setItem('theme', this.theme());
@@ -39,6 +38,4 @@ export class ThemeToggleComponent implements OnInit {
     ).matches;
     return prefersDark ? 'dracula' : 'light';
   }
-
-  ngOnInit() {}
 }

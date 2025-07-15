@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-product-search',
   imports: [FormsModule],
-  // templateUrl: './product-search.component.html',
+
   template: `
     <form class="flex items-center gap-x-2 mb-4" (submit)="onSearch()">
       <input
@@ -20,12 +19,10 @@ import { ActivatedRoute, Router } from '@angular/router';
     </form>
   `,
 })
-export class ProductSearchComponent implements OnInit {
+export class ProductSearchComponent {
   q: string = '';
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-
-  ngOnInit() {}
 
   onSearch() {
     if (!this.q) return;
@@ -36,6 +33,3 @@ export class ProductSearchComponent implements OnInit {
     });
   }
 }
-
-// skip: 0
-// (keyup.enter)="onSearch()"

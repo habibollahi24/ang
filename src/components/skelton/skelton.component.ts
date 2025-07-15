@@ -22,8 +22,4 @@ import { Component, OnInit } from '@angular/core';
     </div>
   `,
 })
-export class SkeltonComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-}
+export class SkeltonComponent {}
