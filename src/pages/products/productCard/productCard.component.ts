@@ -38,7 +38,7 @@ import { CartService } from '../../../service/cart.service';
         <div class="card-actions mt-4">
           <button
             (click)="handleAddToCart()"
-            class="btn btn-secondary btn-sm w-full"
+            class="btn btn-secondary btn-sm w-full py-6 md:py-5"
           >
             Add To Cart
           </button>
