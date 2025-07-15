@@ -7,7 +7,7 @@ import { CartService } from '../../../service/cart.service';
   selector: 'app-productCard',
   imports: [LucideAngularModule],
   template: `
-    <div class="card bg-base-100 shadow-md hover:shadow-xl transition">
+    <div class=" card bg-base-100 shadow-md hover:shadow-xl transition">
       <figure class="p-8 ">
         <img
           [src]="product.thumbnail || 'https://placehold.co/300x200'"

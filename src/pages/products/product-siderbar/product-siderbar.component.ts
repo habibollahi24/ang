@@ -26,7 +26,7 @@ import { ActivatedRoute, Router } from '@angular/router';
             [class]="
               cat.slug === currentCategory()
                 ? 'text-secondary font-bold'
-                : 'text-gray-700 hover:text-secondary'
+                : 'text-gray-500 hover:text-secondary'
             "
             (click)="filterByCategory(cat.slug)"
             class="cursor-pointer block"
@@ -54,7 +54,7 @@ import { ActivatedRoute, Router } from '@angular/router';
           [class]="
             cat.slug === currentCategory()
               ? 'text-secondary font-bold'
-              : 'text-gray-700 hover:text-secondary'
+              : 'text-gray-500 hover:text-secondary'
           "
           (click)="filterByCategory(cat.slug)"
           class="cursor-pointer block"
