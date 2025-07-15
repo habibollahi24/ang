@@ -9,6 +9,7 @@ export interface ProductType {
   price: number;
   rating: number;
   thumbnail: string;
+  images: string[];
 }
 
 @Injectable({

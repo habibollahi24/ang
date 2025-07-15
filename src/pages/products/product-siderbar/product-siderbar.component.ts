@@ -47,7 +47,9 @@ import { ActivatedRoute, Router } from '@angular/router';
           Reset Filters
         </button>
       </div>
-      <ul class="space-y-2 h-[300px] overflow-y-scroll shadow p-4 rounded-md">
+      <ul
+        class="scrollbar-thin space-y-2 h-[300px] overflow-y-scroll shadow p-4 rounded-xl scrollbar-thin"
+      >
         @for (cat of categories(); track cat.slug) {
         <li
           [class]="

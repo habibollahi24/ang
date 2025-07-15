@@ -10,7 +10,7 @@ import { CartService } from '../../../service/cart.service';
     <div class=" card bg-base-100 shadow-md hover:shadow-xl transition">
       <figure class="p-8 ">
         <img
-          [src]="product.thumbnail || 'https://placehold.co/300x200'"
+          [src]="product.images[0] || 'https://placehold.co/300x200'"
           alt="{{ product.title }}"
           class="rounded-xl h-28 object-cover"
         />
