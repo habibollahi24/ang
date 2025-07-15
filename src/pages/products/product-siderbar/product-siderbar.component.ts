@@ -37,7 +37,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       </div>
     </dialog>
 
-    <div class="hidden md:block sticky top-10 ">
+    <div class="hidden md:block sticky top-20 ">
       <div class="flex items-center gap-x-2 mb-4">
         <h3 class="text-lg font-bold ">Categories</h3>
         <button
