@@ -12,7 +12,7 @@ import { CartService } from '../../../service/cart.service';
         <img
           [src]="product.images[0] || 'https://placehold.co/300x200'"
           alt="{{ product.title }}"
-          class="rounded-xl h-28 object-cover"
+          class="rounded-xl h-28 object-cover scale-150"
         />
       </figure>
       <div class=" p-4 ">
